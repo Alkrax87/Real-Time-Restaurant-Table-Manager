@@ -1,0 +1,27 @@
+<div
+  class="p-4 rounded-lg shadow-md cursor-pointer transition-colors duration-200 ease-in-out hover:opacity-85"
+  [ngClass]="{
+    'bg-green-200': tableStatus === true,
+    'bg-red-200': tableStatus !== true
+  }"
+  (click)="tableStatus = !tableStatus"
+>
+  <h3
+    class="font-semibold"
+    [ngClass]="{
+      'text-green-800': tableStatus === true,
+      'text-red-800': tableStatus !== true
+    }"
+  >
+    {{ tableName }}
+  </h3>
+  <p
+    class="text-sm capitalize"
+    [ngClass]="{
+      'text-green-800': tableStatus === true,
+      'text-red-800': tableStatus !== true
+    }"
+  >
+    {{ tableStatus }}
+  </p>
+</div>
