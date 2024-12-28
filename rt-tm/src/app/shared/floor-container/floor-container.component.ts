@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TableComponent } from '../table/table.component';
 
 @Component({
@@ -8,6 +8,6 @@ import { TableComponent } from '../table/table.component';
   styles: ``,
 })
 export class FloorContainerComponent {
-  floorName: string = 'Piso';
-  floorSize: number = 10;
+  @Input() floorName: string = "";
+  @Input() floorSize: number = 0;
 }
