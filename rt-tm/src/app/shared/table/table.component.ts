@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
   styles: ``,
 })
 export class TableComponent {
-  tableName = 'Mesa';
+  @Input() tableIndex!:number;
   tableStatus = true;
 }

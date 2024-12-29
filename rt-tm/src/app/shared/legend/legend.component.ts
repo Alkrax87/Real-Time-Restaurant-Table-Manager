@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-legend',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styles: ``,
 })
 export class LegendComponent {
-  total: number = 50;
+  @Input() total!: number;
   available: number = 30;
   busy: number = 20;
 }
