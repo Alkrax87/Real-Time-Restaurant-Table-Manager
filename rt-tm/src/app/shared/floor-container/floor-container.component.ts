@@ -8,7 +8,9 @@ import { TableComponent } from '../table/table.component';
   styles: ``,
 })
 export class FloorContainerComponent {
+  @Input() floorIndex!: number;
   @Input() floorName!: string;
   @Input() floorSize!: number;
   @Input() startNumber!: number;
+  @Input() tables!: [boolean];
 }

@@ -4,7 +4,7 @@
     'bg-green-200': tableStatus === true,
     'bg-red-200': tableStatus !== true
   }"
-  (click)="tableStatus = !tableStatus"
+  (click)="changeStatus()"
 >
   <h3
     class="font-semibold"
@@ -13,7 +13,7 @@
       'text-red-800': tableStatus !== true
     }"
   >
-    Mesa {{ tableIndex }}
+    Mesa {{ tableNumber }}
   </h3>
   <p
     class="text-sm capitalize"

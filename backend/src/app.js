@@ -27,10 +27,38 @@ io.on("connection", (socket) => {
   let available = total;
   let busy = 0;
 
+  for (let i = 0; i < config.floors.length; i++) {
+    const floorSize = config.floors[i].size;
+    const tables = Array(floorSize).fill(true);
+    config.floors[i] = { ...config.floors[i], tables };
+  }
+
   socket.emit("initialData", config.floors);
   socket.emit("totalTables", total);
   socket.emit("availableTables", available);
   socket.emit("busyTables", busy);
+
+  socket.on("newAvailable", ({ tableIndex, floorIndex }) => {
+    config.floors[floorIndex].tables[tableIndex] = true;
+    io.emit("initialData", config.floors);
+    if (busy > 0) {
+      available++;
+      busy--;
+      io.emit("availableTables", available);
+      io.emit("busyTables", busy);
+    }
+  });
+
+  socket.on("newBusy", ({ tableIndex, floorIndex }) => {
+    config.floors[floorIndex].tables[tableIndex] = false;
+    io.emit("initialData", config.floors);
+    if (available > 0) {
+      busy++;
+      available--;
+      io.emit("availableTables", available);
+      io.emit("busyTables", busy);
+    }
+  });
 
   socket.on("disconnect", () => {
     console.log("Client disconnected");

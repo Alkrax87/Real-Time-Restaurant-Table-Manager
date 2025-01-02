@@ -16,9 +16,11 @@ import { combineLatest, Subject, takeUntil } from 'rxjs';
     ></app-legend>
     <ng-container *ngFor="let item of data; let i = index">
       <app-floor-container
+        [floorIndex]="i"
         [floorName]="item.name"
         [floorSize]="item.size"
         [startNumber]="getStartNumber(i)"
+        [tables]="item.tables"
       ></app-floor-container>
     </ng-container>
   `,
@@ -28,7 +30,7 @@ export class AppComponent {
   totalTables: number = 0;
   availableTables: number = 0;
   busyTables: number = 0;
-  data: { name: string; size: number }[] = [];
+  data: { name: string; size: number; tables:[boolean] }[] = [];
 
   private destroy$ = new Subject<void>();
 
