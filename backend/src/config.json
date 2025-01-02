@@ -1,0 +1,22 @@
+{
+  "restaurantName": "Restaurante Ejemplo",
+  "defaultTableStatus": "available",
+  "floors": [
+    {
+      "name": "Piso 1",
+      "size": 10
+    },
+    {
+      "name": "Piso 2",
+      "size": 5
+    },
+    {
+      "name": "Piso 3",
+      "size": 6
+    },
+    {
+      "name": "Piso 4",
+      "size": 10
+    }
+  ]
+}

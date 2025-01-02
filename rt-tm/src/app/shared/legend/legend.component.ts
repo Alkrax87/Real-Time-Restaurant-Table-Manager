@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class LegendComponent {
   @Input() total!: number;
-  available: number = 30;
-  busy: number = 20;
+  @Input() available!: number;
+  @Input() busy!: number;
 }
